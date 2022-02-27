@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+/*Toan man hinh*/
+body {
+  background-image: linear-gradient(
+    0deg,
+    rgb(240, 198, 236) 23.8%,
+    rgb(28, 169, 224) 92%
+  );
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+}
+/* khung phat am nhac */
+.music-container {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 20px 20px 0 rgba(104, 189, 176, 0.6);
+  display: flex;
+  padding: 20px 30px;
+  position: relative;
+  margin: 100px 0;
+  z-index: 10;
+}
+/* Khung anh?*/
+.img-container {
+  position: relative;
+  width: 110px;
+}
+/* Khung anh? quay tron*/
+.img-container::after {
+  content: '';
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, 50%);
+}
+/* In anh? vao khung dia quay*/
+.img-container img {
+  border-radius: 50%;
+  object-fit: cover;
+  height: 110px;
+  width: inherit;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: rotate 3s linear infinite;
+
+  animation-play-state: paused;
+}
+/*Animation cho anh  va nhac*/
+.music-container.play .img-container img {
+  animation-play-state: running;
+}
+/* keyframe animate cho dia quay*/
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+/* nut bam tien lui phat nhac va tam dung*/
+.action-btn {
+  background-color: #fff;
+  border: 0;
+  color: #dfdbdf;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px;
+  margin: 0 20px;
+}
+/*Nut phong to o giua*/
+.action-btn.action-btn-big {
+  color: #cdc2d0;
+  font-size: 30px;
+}
+/*Khi bam vao nut*/
+.action-btn:focus {
+  outline: 0;
+}
+/* Thong tin bai hat- ten bai hat*/
+.music-info {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px 15px 0 0;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: calc(100% - 40px);
+  padding: 10px 10px 10px 150px;
+  opacity: 0;
+  transform: translateY(0%);
+  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+  z-index: 0;
+}
+
+.music-container.play .music-info {
+  opacity: 1;
+  transform: translateY(-100%);
+}
+
+.music-info h4 {
+  margin: 0;
+}
+/*thanh tien trinh phat nhac*/
+.progress-container {
+  background: rgb(227, 231, 228);
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+  height: 4px;
+  width: 100%;
+}
+
+.progress {
+  background-color: #fe8daa;
+  border-radius: 5px;
+  height: 100%;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+.playlist {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 5px 5px 5px 5px;
+  list-style-type: none;
+  margin: -78px auto;
+  padding-bottom: 10px;
+  padding-top: 15px;
+  position: relative;
+  width: 360px;
+  z-index: 3;
+}
+ .playlist li {
+  color: #d6d316;
+  cursor: pointer;
+  margin: 0 0 5px 15px;
+}
+.playlist li.active {
+  font-weight: bold;
+  font-style: italic;
+} 
