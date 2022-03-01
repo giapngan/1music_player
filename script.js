@@ -1,5 +1,4 @@
 const musicContainer = document.getElementById('music-container');
-const btnPlayList = document.querySelector(".play-list");
 const playBtn = document.getElementById('play');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
@@ -13,7 +12,8 @@ const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 const currTime = document.querySelector('#currTime');
 const durTime = document.querySelector('#durTime');
- const songs = ['ava max not your barbie girl' ,'kiseki', 'tiger jk reset', 'walking in the sun']   
+ 
+songs = ['ava max not your barbie girl' ,'kiseki', 'tiger jk reset', 'walking in the sun']   
 
 let songIndex = 3;
 
